@@ -140,7 +140,6 @@ export class Hub360Home extends LitElement {
       opacity: 0.7;
     }
 
-    /* --- EVOLUTION SECTION [cite: 204-213] --- */
     .evolution {
       padding: 80px 20px;
       background: linear-gradient(180deg, var(--bg-dark), #050510);
@@ -188,7 +187,6 @@ export class Hub360Home extends LitElement {
       font-weight: bold;
     }
 
-    /* --- BENTO GRID (PERSONAS) [cite: 216-234] --- */
     .bento-section {
       padding: 60px 20px;
     }
@@ -250,7 +248,6 @@ export class Hub360Home extends LitElement {
     .span-2 { grid-column: span 2; }
     .span-3 { grid-column: span 3; }
 
-    /* --- TIMELINE SECTION [cite: 235-246] --- */
     .timeline {
       padding: 80px 20px;
       border-top: 1px solid rgba(255,255,255,0.05);
@@ -369,7 +366,7 @@ export class Hub360Home extends LitElement {
             </div>
           </div>
           <div class="evolution-image">
-            <img src="./../assets/images/21-1.png" alt="Expo Autotransporte Toluca 2026" style="width: 100%; max-width: 600px; margin-top: 30px;">
+            <img src="assets/images/21-1.png" alt="Expo Autotransporte Toluca 2026" style="width: 100%; max-width: 600px; margin-top: 30px;">
           </div>
         </div>
       </section>
