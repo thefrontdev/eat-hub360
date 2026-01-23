@@ -369,7 +369,7 @@ export class Hub360Home extends LitElement {
             </div>
           </div>
           <div class="evolution-image">
-            <img src="/assets/images/21-1.png" alt="Expo Autotransporte Toluca 2026" style="width: 100%; max-width: 600px; margin-top: 30px;">
+            <img src="./../assets/images/21-1.png" alt="Expo Autotransporte Toluca 2026" style="width: 100%; max-width: 600px; margin-top: 30px;">
           </div>
         </div>
       </section>
