@@ -119,7 +119,7 @@ export class Hub360Expositores extends LitElement {
               <p>Aquí, cada interacción está pensada para conectar a tu marca con el perfil correcto, en el momento adecuado.</p>
             </div>
             <div style="min-width: 200px; width: 800px; text-align: center; border: 1px solid var(--primary-blue); padding: 20px;">
-                <img src="./../assets/images/20.png" alt="Expositores" style="width: 100%; height: auto;">
+                <img src="assets/images/20.png" alt="Expositores" style="width: 100%; height: auto;">
             </div>
           </div>
 
