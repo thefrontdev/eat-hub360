@@ -1,5 +1,8 @@
 import { LitElement, html, css } from './../assets/js/lit-core.min.js';
+import './../components/nav-menu.js';
 import './../components/image-carousel.js';
+import './../components/countdown.js';
+import './../components/footer.js';
 
 export class Hub360Home extends LitElement {
   static styles = css`
@@ -14,8 +17,8 @@ export class Hub360Home extends LitElement {
       --text-muted: #a0a0a0;
       
       /* --- FUENTES --- */
-      --font-display: 'Orbitron', sans-serif;
-      --font-body: 'Roboto', sans-serif;
+      --font-display: 'Anton', sans-serif;
+      --font-body: 'Nunito', sans-serif;
 
       display: block;
       background-color: var(--bg-dark);
@@ -36,6 +39,7 @@ export class Hub360Home extends LitElement {
       text-transform: uppercase;
       margin: 0;
       line-height: 1.2;
+      font-style: italic;
     }
 
     p {
@@ -96,7 +100,7 @@ export class Hub360Home extends LitElement {
       padding: 100px 20px 60px;
       text-align: center;
       position: relative;;
-      background: radial-gradient(circle at center top, #000ffa40 0%, transparent 70%);
+      background: radial-gradient(circle at 50% 0, #000ffa40 0%, transparent 45%);
     }
 
     /*.hero::before {
@@ -302,6 +306,11 @@ export class Hub360Home extends LitElement {
       margin: 20px 0;
     }
 
+    .countdown-container {
+      display: grid;
+      place-items: center;
+    }
+
     .final-cta {
       max-width: 600px;
       margin: 0 auto;
@@ -315,10 +324,32 @@ export class Hub360Home extends LitElement {
 
     footer {
       text-align: center;
-      padding: 40px;
+      padding: 1rem;
       border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.9rem;
       color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      & .logo {
+        & img {
+          height: 6rem;
+          width: auto;
+        }
+      }
+      & a {
+        text-decoration: none;
+        color: var(--text-muted);
+        transition: all 0.3s ease;
+        &:hover {
+          color: var(--primary-light);
+          & img {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 12px var(--primary-deep));
+            transition: all 0.3s ease;
+          }
+        }
+      }
     }
 
     /* --- RESPONSIVE --- */
@@ -335,12 +366,12 @@ export class Hub360Home extends LitElement {
 
   render() {
     return html`
+      <nav-menu></nav-menu>
       <section class="hero">
         <div class="container">
           <h1 class="gradient-text">El Hub que conecta a toda<br>la industria del autotransporte</h1>
           <p class="subheadline">Antes, durante y después de Expo Autotransporte Toluca 2026, un solo centro articula <strong>decisiones, soluciones, negocio y comunidad</strong>.</p>
           <p class="credibility">Más que una expo. Un ecosistema activo que impulsa a quienes mueven la industria.</p>
-          
           <div class="btn-group">
             <a href="#/visitantes" class="btn">Soy Visitante</a>
             <a href="#/expositores" class="btn">Soy Expositor</a>
@@ -420,7 +451,7 @@ export class Hub360Home extends LitElement {
               <a href="#" class="card-link" style="color: #fff;">Ver Oportunidades →</a>
             </div>
 
-            <div class="card span-3" style="height: max-content; background: linear-gradient(336deg, #00f3ff1a, var(--bg-card));">
+            <div class="card span-3" style="height: max-content; background: linear-gradient(336deg, #00f3ff1a, var(--bg-card) 60%);">
               <div style="display:flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
                 <div>
                   <span class="role-tag">Institucional</span>
@@ -474,7 +505,10 @@ export class Hub360Home extends LitElement {
         <div class="container">
           <p style="text-transform:uppercase; letter-spacing:3px;">Expo Autotransporte Toluca</p>
           <div class="date-display">4 - 6 MARZO 2026</div>
-          <p>Toluca, Estado de México</p>
+          <p><a href="https://maps.app.goo.gl/mZyKYYby8h1VrvNf9" target="_blank" rel="noopener noreferrer">Centro de Convenciones del Estado de México, Toluca, Estado de México</a></p>
+          <div class="countdown-container">
+            <countdown-timer targetDate="2026/03/04 09:00:00"></countdown-timer>
+          </div>
           <p style="margin-bottom: 2rem;">
             Tres días donde la industria se encuentra.<br>
             Un Hub que permanece activo todo el año.
@@ -484,20 +518,17 @@ export class Hub360Home extends LitElement {
           <div class="final-cta">
             <h3>Tu lugar dentro del Hub define tu experiencia</h3>
             <p style="margin: 20px 0;">Participa como visitante, expositor o partner estratégico y forma parte del centro que conecta a toda la industria.</p>
-            
             <div class="btn-group" style="flex-direction: column; gap: 10px;">
               <a href="#" class="btn">Regístrate como visitante</a>
               <a href="#" class="btn btn-secondary">Participa como expositor</a>
+              <a href="#" class="btn btn-secondary">Explora sponsorships</a>
             </div>
             <p style="font-size: 0.7rem; margin-top: 15px;">Cupos y espacios sujetos a disponibilidad.</p>
           </div>
         </div>
       </section>
 
-      <footer>
-        <h3>EXPO AUTOTRANSPORTE TOLUCA 2026</h3>
-        <p>El Hub donde la industria se encuentra, se conecta y evoluciona.</p>
-      </footer>
+      <hub-360-footer></hub-360-footer>
     `;
   }
 }

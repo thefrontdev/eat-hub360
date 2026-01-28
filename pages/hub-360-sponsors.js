@@ -14,12 +14,11 @@ export class Hub360Sponsors extends LitElement {
       display: block;
       background-color: var(--bg-dark);
       color: var(--text-main);
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Nunito', sans-serif;
     }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
-
+    h1, h2, h3, h4 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-style: italic; }
     /* --- HERO SPONSORS [cite: 368-371] --- */
     .hero-sponsors {
       padding: 120px 0 80px;
@@ -146,6 +145,7 @@ export class Hub360Sponsors extends LitElement {
 
   render() {
     return html`
+      <nav-menu></nav-menu>
       <div class="container">
         <section class="hero-sponsors">
           <h1 class="gradient-text">Impulse su liderazgo dentro del ecosistema del autotransporte</h1>
@@ -264,6 +264,7 @@ export class Hub360Sponsors extends LitElement {
           <a href="#" class="btn-media-kit" style="background: transparent; border: 1px solid var(--primary-blue);">Quiero ser Sponsor / Partner</a>
         </section>
       </div>
+      <hub-360-footer></hub-360-footer>
     `;
   }
 }

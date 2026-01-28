@@ -14,12 +14,11 @@ export class Hub360Expositores extends LitElement {
       display: block;
       background-color: var(--bg-dark);
       color: var(--text-main);
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Nunito', sans-serif;
     }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
-
+    h1, h2, h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-style: italic; }
     /* --- HERO SECTION [cite: 270-281] --- */
     .hero-expositor {
       padding: 100px 0 60px;
@@ -100,6 +99,7 @@ export class Hub360Expositores extends LitElement {
 
   render() {
     return html`
+      <nav-menu></nav-menu>
       <div class="container">
         <section class="hero-expositor">
           <h1>Exponer en Hub 360 es participar donde la industria toma decisiones</h1>
@@ -238,6 +238,7 @@ export class Hub360Expositores extends LitElement {
           <p>Exponer en Expo Autotransporte Toluca 2026 no es ocupar un espacio.<br>
           Es formar parte del Hub que conecta a toda la industria.</p>
         </footer>
+        <hub-360-footer></hub-360-footer>
       </div>
     `;
   }

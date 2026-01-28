@@ -14,12 +14,11 @@ export class Hub360Visitantes extends LitElement {
       display: block;
       background-color: var(--bg-dark);
       color: var(--text-main);
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Nunito', sans-serif;
     }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; margin: 0; }
-
+    h1, h2, h3, h4 { font-family: 'Anton', sans-serif; text-transform: uppercase; margin: 0; font-style: italic; }
     /* --- HERO VISITANTES [cite: 425-428] --- */
     .hero-visitantes {
       padding: 100px 0 60px;
@@ -152,6 +151,7 @@ export class Hub360Visitantes extends LitElement {
 
   render() {
     return html`
+      <nav-menu></nav-menu>
       <div class="container">
         <section class="hero-visitantes">
           <h1>Donde los líderes del autotransporte toman decisiones</h1>
@@ -251,6 +251,7 @@ export class Hub360Visitantes extends LitElement {
           <p>Asegure su acceso como visitante y viva la experiencia Expo Autotransporte Toluca – Hub 360°</p>
         </section>
       </div>
+      <hub-360-footer></hub-360-footer>
     `;
   }
 }

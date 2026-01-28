@@ -8,14 +8,18 @@ export class NavMenu extends LitElement {
     }
     nav {
       position: fixed;
-      top: 0; left: 0; width: 100%;
+      top: 0; left: 10%; width: 80%;
       height: 70px;
-      background: rgba(2, 2, 5, 0.95);
+      background: #0a0a1240;
       backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(0, 15, 250, 0.3);
+      border: 1px solid var(--primary);
       display: flex;
       align-items: center;
       z-index: 2000;
+      box-sizing: border-box;
+      transition: 0.3s;
+      box-shadow: 0 0 1rem #000ffa;
+      border-radius: 8rem;
     }
     .container {
       width: 100%;
@@ -33,7 +37,14 @@ export class NavMenu extends LitElement {
       font-weight: 900;
       font-size: 1.2rem;
       text-shadow: 0 0 10px rgba(0, 15, 250, 0.5);
+      box-sizing: border-box;
     }
+
+    .logo img {
+      height: 4rem;
+      vertical-align: middle;
+    }
+
     /* Menú Desktop */
     .menu-desktop {
       display: flex;
@@ -115,13 +126,16 @@ export class NavMenu extends LitElement {
     return html`
       <nav>
         <div class="container">
-          <a href="#/" class="logo">HUB 360</a>
+          <a href="#/" class="logo">
+            <img src="assets/images/21-1.png" alt="Hub 360 Logo">
+          </a>
           
           <div class="menu-desktop">
             <a href="#/">Inicio</a>
             <a href="#/visitantes">Visitantes</a>
             <a href="#/expositores">Expositores</a>
             <a href="#/sponsors">Sponsors</a>
+            <a href="#/institucional">Institucional</a>
           </div>
 
           <button class="burger ${this.isOpen ? 'open' : ''}" @click=${this.toggleMenu}>

@@ -37,9 +37,13 @@ class ImageCarousel extends LitElement {
           height: 4rem;
           width: auto;
           display: block;
+          border-radius: 0.5rem;
+          border: 1px solid #000ffacc;
+          box-shadow: 0 0 10px #000ffa80, 0 0 30px #000ffa33;
           transition: transform 0.3s ease;
           &:hover {
             transform: scale(1.1);
+            box-shadow: 0 0 10px #4d5bff80, 0 0 20px #4d5bff33;
           }
         }
         &:has(img:hover){

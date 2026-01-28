@@ -50,6 +50,7 @@ export class AppRoot extends LitElement {
       case '/visitantes': return html`<hub-360-visitantes></hub-360-visitantes>`;
       case '/expositores': return html`<hub-360-expositores></hub-360-expositores>`;
       case '/sponsors': return html`<hub-360-sponsors></hub-360-sponsors>`;
+      case '/institucional': return html`<hub-360-institucional></hub-360-institucional>`;
       default: return html`<hub-360-home></hub-360-home>`;
     }
   }
