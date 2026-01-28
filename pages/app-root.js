@@ -11,7 +11,8 @@ export class AppRoot extends LitElement {
     :host {
       display: block;
       background-color: #020205;
-      min-height: 100vh;
+      min-height: 100dvh;
+      max-width: 100vw;
     }
     main {
       transition: opacity 0.4s ease, transform 0.4s ease;

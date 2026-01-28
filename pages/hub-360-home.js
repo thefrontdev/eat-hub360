@@ -362,6 +362,12 @@ export class Hub360Home extends LitElement {
       .timeline-grid { padding-left: 20px; border-left: 2px solid rgba(255,255,255,0.05); }
       .timeline-grid::before { display: none; } /* Simplificar en móvil */
     }
+
+    @media (width <= 480px) {
+      .evolution .container {
+        flex-direction: column;
+      }
+    }
   `;
 
   render() {

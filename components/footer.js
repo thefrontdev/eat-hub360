@@ -40,6 +40,11 @@ export class Footer extends LitElement {
         }
       }
     }
+    @media (width <= 480px) {
+      footer {
+        flex-direction: column;
+      }
+    }
   `;
 
   render() {

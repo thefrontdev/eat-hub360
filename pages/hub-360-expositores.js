@@ -58,6 +58,14 @@ export class Hub360Expositores extends LitElement {
 
     .card h3 { color: var(--accent-cyan); margin-bottom: 15px; font-size: 1.2rem; }
 
+    .card-image {
+      min-width: 200px; 
+      width: 800px; 
+      text-align: center; 
+      border: 1px solid var(--primary-blue); 
+      padding: 20px;
+    }
+
     /* --- BOTONES ESTILO TECH --- */
     .btn-neon {
       display: inline-block;
@@ -95,6 +103,15 @@ export class Hub360Expositores extends LitElement {
       .bento-grid, .value-timeline, .card-full { grid-template-columns: 1fr; flex-direction: column; }
       .card-full { grid-column: span 1; }
     }
+    @media (width <= 480px) {
+      .bento-grid {
+        display: flex;
+        flex-direction: column;
+      }
+      .card-image {
+        width: 100%;
+      }
+    }
   `;
 
   render() {
@@ -118,7 +135,7 @@ export class Hub360Expositores extends LitElement {
               <p><strong>Hub 360 nace para resolver ese problema.</strong></p>
               <p>Aquí, cada interacción está pensada para conectar a tu marca con el perfil correcto, en el momento adecuado.</p>
             </div>
-            <div style="min-width: 200px; width: 800px; text-align: center; border: 1px solid var(--primary-blue); padding: 20px;">
+            <div class="card-image">
                 <img src="assets/images/20.png" alt="Expositores" style="width: 100%; height: auto;">
             </div>
           </div>

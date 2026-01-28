@@ -5,6 +5,7 @@ export class NavMenu extends LitElement {
     :host {
       --primary: #000ffa;
       display: block;
+      font-family: 'Nunito', sans-serif;
     }
     nav {
       position: fixed;
@@ -20,6 +21,7 @@ export class NavMenu extends LitElement {
       transition: 0.3s;
       box-shadow: 0 0 1rem #000ffa;
       border-radius: 8rem;
+      margin-top: 0.5rem;
     }
     .container {
       width: 100%;
@@ -83,23 +85,43 @@ export class NavMenu extends LitElement {
       top: 0; right: -100%;
       width: 80%;
       height: 100vh;
-      background: #0a0a12;
+      background: linear-gradient(transparent, #0a0a12cc 10%);
+      backdrop-filter: blur(8px);
       display: flex;
       flex-direction: column;
       padding: 100px 40px;
       gap: 30px;
       transition: 0.4s ease-in-out;
       border-left: 1px solid var(--primary);
+      display: none;
+      z-index: 2000;
     }
-    .mobile-overlay.open { right: 0; }
+    .mobile-overlay.open {
+      top: 5rem; 
+      right: 0;
+      display: block;
+    }
     .mobile-overlay a {
-      color: white;
-      font-family: 'Orbitron';
+      color: #fafafa;
       font-size: 1.5rem;
       text-decoration: none;
+      margin: 1rem 0;
     }
 
     @media (max-width: 768px) {
+      .menu-desktop { display: none; }
+      .burger { display: flex; }
+      /* Animación Burger a X */
+      .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .burger.open span:nth-child(2) { opacity: 0; }
+      .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-overlay { display: none; }
+    }
+
+    @media (width <= 480px) {
       .menu-desktop { display: none; }
       .burger { display: flex; }
       /* Animación Burger a X */
@@ -145,10 +167,11 @@ export class NavMenu extends LitElement {
       </nav>
 
       <div class="mobile-overlay ${this.isOpen ? 'open' : ''}">
-        <a href="#/" @click=${this.toggleMenu}>Inicio</a>
-        <a href="#/visitantes" @click=${this.toggleMenu}>Visitantes</a>
-        <a href="#/expositores" @click=${this.toggleMenu}>Expositores</a>
-        <a href="#/sponsors" @click=${this.toggleMenu}>Sponsors</a>
+        <p><a href="#/" @click=${this.toggleMenu}>Inicio</a></p>
+        <p><a href="#/visitantes" @click=${this.toggleMenu}>Visitantes</a></p>
+        <p><a href="#/expositores" @click=${this.toggleMenu}>Expositores</a></p>
+        <p><a href="#/sponsors" @click=${this.toggleMenu}>Sponsors</a></p>
+        <p><a href="#/institucional" @click=${this.toggleMenu}>Institucional</a></p>
       </div>
     `;
   }

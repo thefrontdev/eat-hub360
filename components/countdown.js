@@ -24,6 +24,7 @@ class CountdownTimer extends LitElement {
         backdrop-filter: blur(0.25rem);
         border-radius: 0.5rem;
         box-shadow: 0 0 0.5rem #000ffa80;
+        font-family: 'Nunito', sans-serif;
         & div:first-child {
           font-size: 3rem;
           font-weight: bold;
@@ -44,8 +45,9 @@ class CountdownTimer extends LitElement {
 
     @media screen and (max-width: 500px) {
       .countdown {
-        gap: 0.5rem;
+        flex-wrap: wrap;
         & .countdown-item {
+          width: 100%;
           & div:first-child {
             font-size: 1.75rem;
           }
