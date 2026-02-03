@@ -26,11 +26,11 @@ class CountdownTimer extends LitElement {
         box-shadow: 0 0 0.5rem #000ffa80;
         font-family: 'Nunito', sans-serif;
         & div:first-child {
-          font-size: 3rem;
+          font-size: 2rem;
           font-weight: bold;
         }
         & div:last-child {
-          font-size: 1.125rem;
+          font-size: 0.75rem;
           font-weight: bold;
           text-transform: uppercase;
         }

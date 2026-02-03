@@ -49,7 +49,7 @@ export class Hub360Home extends LitElement {
 
     .gradient-text {
       background: linear-gradient(180deg, #fff, var(--primary-light));
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 

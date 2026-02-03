@@ -47,7 +47,7 @@ export class AppRoot extends LitElement {
   _renderPage() {
     // Aquí es donde sucede la "magia" del routing nativo
     switch (this._route) {
-      case '/': return html`<hub-360-home></hub-360-home>`;
+      case '/': return html`<hub-360-home-copy></hub-360-home-copy>`;
       case '/visitantes': return html`<hub-360-visitantes></hub-360-visitantes>`;
       case '/expositores': return html`<hub-360-expositores></hub-360-expositores>`;
       case '/sponsors': return html`<hub-360-sponsors></hub-360-sponsors>`;

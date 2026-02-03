@@ -3,15 +3,20 @@ import { LitElement, html, css } from './../assets/js/lit-core.min.js';
 export class Hub360Institucional extends LitElement {
   static styles = css`
     :host {
-      /* --- MISMAS VARIABLES PARA CONSISTENCIA --- */
-      --primary-deep: #000ffa;
-      --primary-light: #4d5bff;
+      /* --- PALETA DE COLORES --- */
+      --primary-deep: #000ffa; /* Color solicitado */
+      --primary-light: #4d5bff; /* Variación para legibilidad sobre negro */
+      --primary-light-60: #4d5bff99; /* Variación para legibilidad sobre negro */
+      --primary-light-40: #4d5bff66; /* Variación para legibilidad sobre negro */
       --neon-cyan: #00f3ff;
-      --bg-dark: #020205;
+      --bg-dark: #050505;
+      --bg-dark-80: #050505cc;
+      --bg-dark-40: #05050566;
       --bg-card: #0a0a12;
-      --text-main: #ffffff;
+      --text-main: #fafafa;
       --text-muted: #a0a0a0;
       
+      /* --- FUENTES --- */
       --font-display: 'Anton', sans-serif;
       --font-body: 'Nunito', sans-serif;
 
@@ -19,6 +24,7 @@ export class Hub360Institucional extends LitElement {
       background-color: var(--bg-dark);
       color: var(--text-main);
       font-family: var(--font-body);
+      overflow-x: hidden;
     }
 
     .container {
@@ -39,9 +45,17 @@ export class Hub360Institucional extends LitElement {
     }
 
     .hero-inst h1 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      margin-bottom: 20px;
-      text-shadow: 0 0 20px rgba(0, 15, 250, 0.4);
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      margin: 0;
+      font-style: italic;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      text-shadow: 0 0 20px var(--primary-light-60), 0 0 10px var(--primary-light-40);
+      & .highlight {
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(to bottom, #fafafa, #000ffa33);
+      }
     }
 
     .hero-inst p {
@@ -49,6 +63,16 @@ export class Hub360Institucional extends LitElement {
       max-width: 800px;
       margin: 0 auto;
       color: white;
+    }
+
+    .section-header {
+      & .line {
+        width: 80px;
+        height: 4px;
+        background: var(--primary-deep);
+        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        margin: 0 auto 2rem;
+      }
     }
 
     /* --- GRID DE ALIANZAS --- */
@@ -62,12 +86,13 @@ export class Hub360Institucional extends LitElement {
     .partner-card {
       background: var(--bg-card);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
       padding: 40px 30px;
       text-align: center;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+      border: 1px solid var(--text-muted);
     }
 
     .partner-card:hover {
@@ -76,20 +101,12 @@ export class Hub360Institucional extends LitElement {
       box-shadow: 0 10px 30px rgba(0, 15, 250, 0.1);
     }
 
-    /* Efecto de borde superior neón */
-    .partner-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 4px;
-      background: var(--primary-deep);
-      opacity: 0.5;
-    }
+
 
     .partner-logo-area img {
       max-width: auto;
       max-height: 10rem;
       transition: 0.3s;
-      border-radius: 8px;
       border: 1px solid var(--primary-deep);
       margin-bottom: 1rem;
     }
@@ -108,8 +125,8 @@ export class Hub360Institucional extends LitElement {
     .segment-tag {
       display: inline-block;
       padding: 5px 12px;
-      border: 1px solid var(--neon-cyan);
-      color: var(--neon-cyan);
+      border: 1px solid var(--primary-deep);
+      color: var(--primary-deep);
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -134,6 +151,8 @@ export class Hub360Institucional extends LitElement {
     .benefit-item {
       max-width: 300px;
       text-align: left;
+      padding: 1rem;
+      border-left: 2px solid var(--primary-deep);
     }
 
     .benefit-item h4 { color: var(--primary-light); margin-bottom: 10px; }
@@ -175,12 +194,15 @@ export class Hub360Institucional extends LitElement {
       <nav-menu></nav-menu>
       <div class="container">
         <section class="hero-inst">
-          <h1>Ecosistema Institucional</h1>
+          <h1>Ecosistema <span class="highlight">Institucional</span></h1>
           <p>El autotransporte no se construye en solitario. Hub 360 integra a los organismos y comunidades que defienden, impulsan y dan vida al sector.</p>
         </section>
 
         <section style="padding: 40px 0;">
-          <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 10px;">Aliados Estratégicos Confirmados</h2>
+          <div class="section-header">
+            <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 10px;">Aliados Estratégicos Confirmados</h2>
+            <div class="line"></div>
+            </div>
           <div class="partners-grid">
             
             <div class="partner-card">
@@ -233,7 +255,7 @@ export class Hub360Institucional extends LitElement {
             <h3>¿Representas a una Institución u Organismo?</h3>
             <p style="margin: 0;">Súmate a la mesa donde se decide el futuro del autotransporte.</p>
           </div>
-          <a href="mailto:alianzas@hub360.com" class="btn">Colabora con el Hub</a>
+          <a href="https://wa.link/9nxgeo" class="btn">Colabora con el Hub</a>
         </div>
       </div>
       <hub-360-footer></hub-360-footer>

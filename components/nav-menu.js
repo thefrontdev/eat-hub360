@@ -59,6 +59,10 @@ export class NavMenu extends LitElement {
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: 0.3s;
+      &.active {
+        color: var(--primary);
+        font-weight: bold;
+      }
     }
     .menu-desktop a:hover { color: var(--primary); }
 
@@ -132,12 +136,27 @@ export class NavMenu extends LitElement {
   `;
 
   static properties = {
-    isOpen: { type: Boolean }
+    isOpen: { type: Boolean },
+    currentRoute: { type: String }
   };
 
   constructor() {
     super();
     this.isOpen = false;
+    this.currentRoute = 'home';
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener('hashchange', () => this._handleRouteChange());
+  }
+
+  _handleRouteChange() {
+    this.currentRoute = window.location.hash.slice(2) || 'home';
+    console.log('Route changed', this.currentRoute);
+    this.querySelector(`.active`)?.classList.remove('active');
+    const menu = this.shadowRoot.querySelector('.menu-desktop');
+    const active = menu.querySelector(`#${this.currentRoute}`);
   }
 
   toggleMenu() {
@@ -153,11 +172,11 @@ export class NavMenu extends LitElement {
           </a>
           
           <div class="menu-desktop">
-            <a href="#/">Inicio</a>
-            <a href="#/visitantes">Visitantes</a>
-            <a href="#/expositores">Expositores</a>
-            <a href="#/sponsors">Sponsors</a>
-            <a href="#/institucional">Institucional</a>
+            <a href="#/" id="home" class="${this.currentRoute === 'home' ? 'active' : ''}">Inicio</a>
+            <a href="#/visitantes" id="visitantes" class="${this.currentRoute === 'visitantes' ? 'active' : ''}">Visitantes</a>
+            <a href="#/expositores" id="expositores" class="${this.currentRoute === 'expositores' ? 'active' : ''}">Expositores</a>
+            <a href="#/sponsors" id="sponsors" class="${this.currentRoute === 'sponsors' ? 'active' : ''}">Sponsors</a>
+            <a href="#/institucional" id="institucional" class="${this.currentRoute === 'institucional' ? 'active' : ''}">Institucional</a>
           </div>
 
           <button class="burger ${this.isOpen ? 'open' : ''}" @click=${this.toggleMenu}>
