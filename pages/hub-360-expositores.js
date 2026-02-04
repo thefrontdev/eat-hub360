@@ -63,6 +63,7 @@ export class Hub360Expositores extends LitElement {
       transition: all 0.3s ease;
       clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
       cursor: pointer;
+      display: inline-block;
     }
 
     .btn:hover {
@@ -237,7 +238,11 @@ export class Hub360Expositores extends LitElement {
       border: 1px solid var(--primary-blue); 
       padding: 20px;
     }
-
+    .text {
+      grid-column: span 3;
+      text-align: center;
+      margin-top: 40px;
+    }
     .audence-content {
       display: flex;
       gap: 20px;
@@ -333,14 +338,49 @@ export class Hub360Expositores extends LitElement {
       .card-full { grid-column: span 1; }
     }
     @media (width <= 480px) {
+      .text {
+        grid-column: span 1;
+        max-width: 21rem;
+        box-sizing: border-box;
+      }
+      .text-section {
+        width: 100%;
+      }
+      .audence-content { 
+        flex-direction: column; 
+        & .image-wapper {
+          width: 100%;
+          height: 20rem;
+          max-width: 21rem;
+          max-height: 21rem;
+          box-sizing: border-box;
+        }
+      }
+
       .bento-grid {
         display: flex;
         flex-direction: column;
       }
+
+      .card-full {
+        grid-column: span 1;
+        box-sizing: border-box;
+        max-width: 21rem;
+        & h3 {
+          width: auto;
+        }
+        & div {
+          width: 100%;
+        }
+        & .card-image {
+          width: 100%;
+        }
+      }
+
       .card-image {
         width: 100%;
       }
-    }
+  }
   `;
 
   render() {
@@ -382,12 +422,12 @@ export class Hub360Expositores extends LitElement {
             </div>
           </div>
 
-          <div class="text" style="grid-column: span 3; text-align: center; margin-top: 40px;">
+          <div class="text">
             <div class="audence-content">
               <div class="image-wapper">
                 <div class="image"></div>
               </div>
-              <div class="text">
+              <div class="text-section">
                 <h2>Un Hub diseñado para generar ROI, no solo presencia.</h2>
                 <p>Expo Autotransporte Toluca – Hub 360 integra experiencia presencial, comunidad y data para maximizar el valor de tu participación como expositor.<br>
                 No se trata solo de estar.<br>

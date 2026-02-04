@@ -377,6 +377,20 @@ export class Hub360Visitantes extends LitElement {
     @media (max-width: 768px) {
       .bento-grid, .journey-grid, .benefits-list { grid-template-columns: 1fr; }
     }
+
+    @media ( width <= 480px ) {
+      .profiles-section {
+        flex-direction: column;
+        & .profile-image {
+          max-width: 21rem;
+          box-sizing: border-box;
+          & img {
+            width: 100%;
+          }
+        }
+      }
+      .cta-container { padding: 2.5rem 1rem; }
+    }
   `;
 
   render() {

@@ -71,6 +71,7 @@ export class Hub360Sponsors extends LitElement {
       transition: all 0.3s ease;
       clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
       cursor: pointer;
+      display: inline-block;
     }
 
     .btn:hover {

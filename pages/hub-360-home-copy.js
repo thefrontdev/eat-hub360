@@ -724,7 +724,7 @@ export class Hub360Home extends LitElement {
             <div class="card">
               <div class="card-image">
                 <div></div>
-                <img src="assets/images/sponsors.webp" alt="Sponsors" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="assets/images/Sponsors.webp" alt="Sponsors" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
               <div class="card-content">
                 <div class="items-start">
