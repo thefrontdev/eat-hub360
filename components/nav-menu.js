@@ -148,6 +148,7 @@ export class NavMenu extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
+    this.currentRoute = window.location.hash.slice(2) || 'home';
     window.addEventListener('hashchange', () => this._handleRouteChange());
   }
 

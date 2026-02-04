@@ -631,7 +631,7 @@ export class Hub360Home extends LitElement {
               Miles de profesionales, marcas líderes y tomadores de decisión ya forman parte del ecosistema.
             </p>
             <div style="margin-top: 30px;">
-                <a href="https://wa.link/9nxgeo" class="btn btn-secondary" style="font-size: 0.8rem;">Conoce qué es Hub 360</a>
+                <a href="https://wa.link/9nxgeo" class="btn btn-secondary" style="font-size: 0.8rem;" target="_blank" rel="noopener">Conoce qué es Hub 360</a>
             </div>
           </div>
           <div class="evolution-image">
@@ -664,7 +664,7 @@ export class Hub360Home extends LitElement {
             <div class="card">
               <div class="card-image">
                 <div></div>
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3PIOMmUyM7AhiY1p4Uz_IoXQCrzjDBQLhP3JCo5-K9x9boDGAxG8cLLGwAOyBZqr6_xeevHdUHyebRHwm57kWJasCHbGXDFj4dQu8i-NYeGXtjWt7tcEMwU4zxuYOi_yI3TDdRcxGDB1NNWyVFactpVtgNdesmzejejHUHlZ1sMQGLfDdHawd4dw7TCC8cP6jYOqRmAeCAsqQQVYGYAh9oC7qnquGsFjXTzI0t_BsxxkZXYbNWzJc8DEUQygCk3VciSBCQ00ZYq67" alt="Directivos" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="assets/images/directivos.png" alt="Directivos" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
               <div class="card-content">
                 <div class="items-start">
@@ -676,7 +676,7 @@ export class Hub360Home extends LitElement {
                 <div class="items-end">
                   <h3>Visión estratégica y decisiones de alto impacto</h3>
                   <p>Accede a líderes, alianzas y tendencias que definen el rumbo del sector.</p>
-                  <a href="https://wa.link/9nxgeo" class="btn btn-secondary btn-card">Explora la experiencia <span>→</span></a>
+                  <a href="https://wa.link/9nxgeo" class="btn btn-secondary btn-card" target="_blank" rel="noopener">Explora la experiencia <span>→</span></a>
                 </div>
               </div>
             </div>
@@ -684,7 +684,7 @@ export class Hub360Home extends LitElement {
             <div class="card">
               <div class="card-image">
                 <div></div>
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_zi249Wr_mWdrx9dbmMDWdik3zSdh2nCYL0ERPaAybFlHYvvR3sgKDjGGxHHRLc3B7-p9R9WIO3aFTjbFMrXZZOOeHy8vrn4ZnjrVbjCv8DM7q_B0KQnUT3buWrN9ipfOfr17Am4YWP50NvR6Eejc2CVWVfNWFLlJKHSFgOAsVIyk-pZJc9xW7LyvRxoQojlJ5IQkRRt99-eQ86PEGKGRWe0pxpYnHksypxmiOiaUQTn3CBqQKcUOqR3Sk2Dq9SXbedqr3_nN8Ckr" alt="Operativos" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="assets/images/operativos.png" alt="Operativos" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
               <div class="card-content">
                 <div class="items-start">
@@ -696,7 +696,7 @@ export class Hub360Home extends LitElement {
                 <div class="items-end">
                   <h3>Soluciones reales</h3>
                   <p>Encuentra proveedores, tecnología y conocimiento aplicable a tu operación diaria.</p>
-                  <a href="https://wa.link/9nxgeo" class="btn btn-secondary btn-card">Planea tu visita <span>→</span></a>
+                  <a href="https://wa.link/9nxgeo" class="btn btn-secondary btn-card" target="_blank" rel="noopener">Planea tu visita <span>→</span></a>
                 </div>
               </div>
             </div>
@@ -704,7 +704,7 @@ export class Hub360Home extends LitElement {
             <div class="card">
               <div class="card-image">
                 <div></div>
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8cP_FMxksC1jMAn-UE1waBgzgFYPLL_prq2UDPCtamNWu9J4FIom_8l7fIKU08biuVmMNgjthayEdDt3_dfa7BZR7N0ulWXngydYSZiv_Fhm1Ywpsb15-F7bH8aX1Vx8LzicPA3EMzGF937M7_gwf9DQICOo241eg_ecngn0hLkUDgqgzOxDqk0-raSYzxNy35Is0M02iYmMgB2gESFTbwn69hyt9qlspauSulqnu3Qo3ZEtVxbq9NruVN9WY_0RroAuzfDopthLk" alt="Visitantes" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="assets/images/stand.png" alt="Visitantes" style="width: 100%; height: 100%; object-fit: cover;">
               </div>
               <div class="card-content">
                 <div class="items-start">
@@ -716,7 +716,7 @@ export class Hub360Home extends LitElement {
                 <div class="items-end">
                   <h3>Negocio, leads y visibilidad calificada</h3>
                   <p>Conecta con compradores reales dentro de un Hub diseñado para generar ROI. No es solo tráfico, es negocio.</p>
-                  <a href="https://wa.link/9nxgeo" class="btn btn-secondary btn-card">Descubre cómo exponer <span>→</span></a>
+                  <a href="https://wa.link/9nxgeo" class="btn btn-secondary btn-card" target="_blank" rel="noopener">Descubre cómo exponer <span>→</span></a>
                 </div>
               </div>
             </div>
@@ -736,7 +736,7 @@ export class Hub360Home extends LitElement {
                 <div class="items-end">
                   <h3>Posicionamiento</h3>
                   <p>Asocia tu marca al centro de influencia del autotransporte donde la industria decide.</p>
-                  <a href="https://wa.link/9nxgeo" class="btn btn-secondary btn-card">Ver Oportunidades <span>→</span></a>
+                  <a href="https://wa.link/9nxgeo" class="btn btn-secondary btn-card" target="_blank" rel="noopener">Ver Oportunidades <span>→</span></a>
                 </div>
               </div>
             </div>
@@ -756,7 +756,7 @@ export class Hub360Home extends LitElement {
                 <div class="items-end">
                   <h3>Impacto, representación y colaboración sectorial</h3>
                   <p>Participa activamente en el desarrollo del ecosistema.</p>
-                  <a href="https://wa.link/9nxgeo" class="btn btn-card">Conoce cómo integrarte</a>
+                  <a href="https://wa.link/9nxgeo" class="btn btn-card" target="_blank" rel="noopener">Conoce cómo integrarte</a>
                 </div>
               </div>
             </div>
@@ -826,7 +826,7 @@ export class Hub360Home extends LitElement {
                 Tres días donde la industria se encuentra.<br>
                 Un Hub que permanece activo todo el año.
               </p>
-              <a href="https://wa.link/9nxgeo" class="btn">Consulta la agenda y planifica tu experiencia</a>
+              <a href="https://wa.link/9nxgeo" class="btn" target="_blank" rel="noopener">Consulta la agenda y planifica tu experiencia</a>
             </div>
           </div>
 
@@ -834,9 +834,9 @@ export class Hub360Home extends LitElement {
             <h2>Tu lugar dentro del Hub define tu experiencia</h2>
             <p style="margin: 20px 0;">Participa como visitante, expositor o partner estratégico y forma parte del centro que conecta a toda la industria.</p>
             <div class="btn-group" style="gap: 10px; justify-content: space-evenly; flex-wrap: wrap;">
-              <a href="https://forms.gle/oXoKGdyvTL7rowvU6" class="btn">Regístrate como visitante</a>
-              <a href="https://wa.link/9nxgeo" class="btn btn-secondary">Participa como expositor</a>
-              <a href="https://wa.link/9nxgeo" class="btn btn-secondary">Explora sponsorships</a>
+              <a href="https://forms.gle/oXoKGdyvTL7rowvU6" class="btn" target="_blank" rel="noopener">Regístrate como visitante</a>
+              <a href="https://wa.link/9nxgeo" class="btn btn-secondary" target="_blank" rel="noopener">Participa como expositor</a>
+              <a href="https://wa.link/9nxgeo" class="btn btn-secondary" target="_blank" rel="noopener">Explora sponsorships</a>
             </div>
             <p style="font-size: 0.7rem; margin-top: 15px;">Cupos y espacios sujetos a disponibilidad.</p>
           </div>

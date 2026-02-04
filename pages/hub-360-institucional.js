@@ -27,6 +27,143 @@ export class Hub360Institucional extends LitElement {
       overflow-x: hidden;
     }
 
+    h1 {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      margin: 0;
+      font-style: italic;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      text-shadow: 0 0 20px var(--primary-light-60), 0 0 10px var(--primary-light-40);
+      & .highlight {
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(to bottom, #fafafa, #000ffa33);
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-style: italic;
+      margin-bottom: 20px;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding-top: 5.5rem;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      min-height: 85vh;
+      display: flex;
+      position: relative;
+    }
+
+    .hero-image-overlay {
+      z-index: 0;
+      inset: 0px;
+      position: absolute;
+      & .gradient {
+        position: absolute;
+        inset: 0px;
+        z-index: 10;
+        background: linear-gradient(var(--bg-dark-40), var(--bg-dark-80), var(--bg-dark));
+      }
+      & .blend {
+        position: absolute;
+        inset: 0px;
+        z-index: 10;
+        background-color: #0000fa1a;
+        mix-blend-mode: overlay;
+      }
+      & img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+      }
+      & video {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100dvh;
+        object-fit: cover;
+        opacity: 0.6;
+      }
+    }
+
+    .hero-grid-overlay {
+      opacity: 0.2;
+      background-image: linear-gradient(to right, #1f1f2e 1px, transparent 1px), linear-gradient(to bottom, #1f1f2e 1px, transparent 1px);
+      z-index: 0;
+      inset: 0px;
+      position: absolute;
+      pointer-events: none;
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      width: 100%;
+      max-width: 64rem;
+      text-align: center;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 20;
+
+      & .line-microcopy {
+        opacity: 0.7;
+        gap: 0.5rem;
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+        margin-bottom: 2rem;
+        & .line {
+          background-image: linear-gradient(to bottom, transparent, var(--primary-deep));
+          width: 1px;
+          height: 2rem;
+        }
+        & span {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.3rem;
+          color: var(--primary-deep);
+        }
+      }
+
+      & .subheadline, .credibility {
+        font-size: 1rem;
+        line-height: 1.75rem;
+        text-align: center;
+        padding-top: 1.5rem;
+        border-style: solid;
+        border-width: 2px 0 0 0;
+        color: var(--text-muted);
+        font-weight: 600;
+        border-color: var(--primary-deep);
+        max-width: 50rem;
+        margin-bottom: 0;
+        & strong {
+          color: var(--primary-light);
+        }
+      }
+
+      & .credibility {
+        border: none;
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+      }
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -192,12 +329,23 @@ export class Hub360Institucional extends LitElement {
   render() {
     return html`
       <nav-menu></nav-menu>
+      <section class="hero">
+        <div class="hero-image-overlay">
+          <div class="gradient"></div>
+          <div class="blend"></div>
+          <video autoplay muted loop playsinline>
+            <source src="assets/videos/visitantes.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-content">
+          <h1 class="gradient-text">Ecosistema <span class="highlight">Institucional</span></h1>
+          <p class="subheadline">
+            El autotransporte no se construye en solitario. Hub 360 integra a los organismos y comunidades que defienden, impulsan y dan vida al sector.
+          </p>
+        </div>
+      </section>
       <div class="container">
-        <section class="hero-inst">
-          <h1>Ecosistema <span class="highlight">Institucional</span></h1>
-          <p>El autotransporte no se construye en solitario. Hub 360 integra a los organismos y comunidades que defienden, impulsan y dan vida al sector.</p>
-        </section>
-
         <section style="padding: 40px 0;">
           <div class="section-header">
             <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 10px;">Aliados Estratégicos Confirmados</h2>
@@ -255,7 +403,7 @@ export class Hub360Institucional extends LitElement {
             <h3>¿Representas a una Institución u Organismo?</h3>
             <p style="margin: 0;">Súmate a la mesa donde se decide el futuro del autotransporte.</p>
           </div>
-          <a href="https://wa.link/9nxgeo" class="btn">Colabora con el Hub</a>
+          <a href="https://wa.link/9nxgeo" class="btn" target="_blank" rel="noopener">Colabora con el Hub</a>
         </div>
       </div>
       <hub-360-footer></hub-360-footer>

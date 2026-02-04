@@ -399,7 +399,7 @@ export class Hub360Home extends LitElement {
               Miles de profesionales, marcas líderes y tomadores de decisión ya forman parte del ecosistema.
             </p>
             <div style="margin-top: 30px;">
-                <a href="#" class="btn btn-secondary" style="font-size: 0.8rem;">Conoce qué es Hub 360</a>
+                <a href="#" class="btn btn-secondary" style="font-size: 0.8rem;" target="_blank" rel="noopener">Conoce qué es Hub 360</a>
             </div>
           </div>
           <div class="evolution-image">
@@ -433,28 +433,28 @@ export class Hub360Home extends LitElement {
               <span class="role-tag">Directivos</span>
               <h3>Visión estratégica y decisiones de alto impacto</h3>
               <p>Accede a líderes, alianzas y tendencias que definen el rumbo del sector.</p>
-              <a href="#" class="card-link">Explora la experiencia para directivos →</a>
+              <a href="#" class="card-link" target="_blank" rel="noopener">Explora la experiencia para directivos →</a>
             </div>
 
             <div class="card">
               <span class="role-tag" style="border-color: var(--neon-cyan); color: var(--neon-cyan);">Operativos</span>
               <h3>Soluciones reales</h3>
               <p>Encuentra proveedores, tecnología y conocimiento aplicable a tu operación diaria.</p>
-              <a href="#" class="card-link" style="color: var(--neon-cyan);">Planea tu visita →</a>
+              <a href="#" class="card-link" style="color: var(--neon-cyan);" target="_blank" rel="noopener">Planea tu visita →</a>
             </div>
 
             <div class="card span-2" style="border-color: rgba(0, 15, 250, 0.5);">
               <span class="role-tag">Expositores</span>
               <h3>Negocio, leads y visibilidad calificada</h3>
               <p>Conecta con compradores reales dentro de un Hub diseñado para generar ROI. No es solo tráfico, es negocio.</p>
-              <a href="#" class="card-link">Descubre cómo exponer →</a>
+              <a href="#" class="card-link" target="_blank" rel="noopener">Descubre cómo exponer →</a>
             </div>
 
             <div class="card">
               <span class="role-tag" style="border-color: #fff; color: #fff;">Sponsors</span>
               <h3>Posicionamiento</h3>
               <p>Asocia tu marca al centro de influencia del autotransporte donde la industria decide.</p>
-              <a href="#" class="card-link" style="color: #fff;">Ver Oportunidades →</a>
+              <a href="#" class="card-link" style="color: #fff;" target="_blank" rel="noopener">Ver Oportunidades →</a>
             </div>
 
             <div class="card span-3" style="height: max-content; background: linear-gradient(336deg, #00f3ff1a, var(--bg-card) 60%);">
@@ -464,7 +464,7 @@ export class Hub360Home extends LitElement {
                   <h3>Impacto, representación y colaboración sectorial</h3>
                   <p>Participa activamente en el desarrollo del ecosistema.</p>
                 </div>
-                <a href="#" class="btn btn-secondary">Conoce cómo integrarte</a>
+                <a href="#" class="btn btn-secondary" target="_blank" rel="noopener">Conoce cómo integrarte</a>
               </div>
             </div>
 

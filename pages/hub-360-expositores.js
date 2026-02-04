@@ -3,38 +3,203 @@ import { LitElement, html, css } from './../assets/js/lit-core.min.js';
 export class Hub360Expositores extends LitElement {
   static styles = css`
     :host {
-      --primary-blue: #000ffa;
-      --primary-glow: #4d5bff;
-      --accent-cyan: #00f3ff;
-      --bg-dark: #020205;
+      /* --- PALETA DE COLORES --- */
+      --primary-deep: #000ffa; /* Color solicitado */
+      --primary-light: #4d5bff; /* Variación para legibilidad sobre negro */
+      --primary-light-60: #4d5bff99; /* Variación para legibilidad sobre negro */
+      --primary-light-40: #4d5bff66; /* Variación para legibilidad sobre negro */
+      --neon-cyan: #00f3ff;
+      --bg-dark: #050505;
+      --bg-dark-80: #050505cc;
+      --bg-dark-40: #05050566;
       --bg-card: #0a0a12;
-      --text-main: #ffffff;
-      --text-dim: #a0a0a0;
+      --text-main: #fafafa;
+      --text-muted: #a0a0a0;
       
+      /* --- FUENTES --- */
+      --font-display: 'Anton', sans-serif;
+      --font-body: 'Nunito', sans-serif;
+
       display: block;
       background-color: var(--bg-dark);
       color: var(--text-main);
-      font-family: 'Nunito', sans-serif;
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      margin: 0;
+      font-style: italic;
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      text-shadow: 0 0 20px var(--primary-light-60), 0 0 10px var(--primary-light-40);
+      & .highlight {
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(to bottom, #fafafa, #000ffa33);
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-style: italic;
+      margin-bottom: 20px;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      color: white;
+      background: rgba(0, 15, 250, 0.1); /* Tinte del color principal */
+      border: 1px solid var(--primary-deep);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--primary-deep);
+      box-shadow: 0 0 30px rgba(0, 15, 250, 0.4);
+      border-color: var(--primary-light);
+    }
+
+    .btn-secondary {
+      border-color: var(--text-muted);
+      color: var(--text-muted);
+      background: transparent;
+    }
+    
+    .btn-secondary:hover {
+      border-color: white;
+      color: white;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    }
+
+    .hero {
+      padding-top: 5.5rem;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      min-height: 85vh;
+      display: flex;
+      position: relative;
+    }
+
+    .hero-image-overlay {
+      z-index: 0;
+      inset: 0px;
+      position: absolute;
+      & .gradient {
+        position: absolute;
+        inset: 0px;
+        z-index: 10;
+        background: linear-gradient(var(--bg-dark-40), var(--bg-dark-80), var(--bg-dark));
+      }
+      & .blend {
+        position: absolute;
+        inset: 0px;
+        z-index: 10;
+        background-color: #0000fa1a;
+        mix-blend-mode: overlay;
+      }
+      & img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+      }
+      & video {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        max-height: 100dvh;
+        object-fit: cover;
+        opacity: 0.6;
+      }
+    }
+
+    .hero-grid-overlay {
+      opacity: 0.2;
+      background-image: linear-gradient(to right, #1f1f2e 1px, transparent 1px), linear-gradient(to bottom, #1f1f2e 1px, transparent 1px);
+      z-index: 0;
+      inset: 0px;
+      position: absolute;
+      pointer-events: none;
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      width: 100%;
+      max-width: 64rem;
+      text-align: center;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 20;
+
+      & .line-microcopy {
+        opacity: 0.7;
+        gap: 0.5rem;
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+        margin-bottom: 2rem;
+        & .line {
+          background-image: linear-gradient(to bottom, transparent, var(--primary-deep));
+          width: 1px;
+          height: 2rem;
+        }
+        & span {
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.3rem;
+          color: var(--primary-deep);
+        }
+      }
+
+      & .subheadline, .credibility {
+        font-size: 1rem;
+        line-height: 1.75rem;
+        text-align: center;
+        padding-top: 1.5rem;
+        border-style: solid;
+        border-width: 2px 0 0 0;
+        color: var(--text-muted);
+        font-weight: 600;
+        border-color: var(--primary-deep);
+        max-width: 50rem;
+        margin-bottom: 0;
+        & strong {
+          color: var(--primary-light);
+        }
+      }
+
+      & .credibility {
+        border: none;
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 2.5rem;
+      }
     }
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     h1, h2, h3 { font-family: 'Anton', sans-serif; text-transform: uppercase; font-style: italic; }
-    /* --- HERO SECTION [cite: 270-281] --- */
-    .hero-expositor {
-      padding: 100px 0 60px;
-      text-align: center;
-      background: radial-gradient(circle at top, rgba(0, 15, 250, 0.2), transparent 70%);
-    }
-
-    .hero-expositor h1 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      background: linear-gradient(180deg, #fff, var(--primary-glow));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
-    }
-
-    .hero-expositor p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; color: var(--text-dim); }
 
     /* --- BENTO GRID: SOLUCIÓN Y AUDIENCIA [cite: 290-310] --- */
     .bento-grid {
@@ -48,15 +213,22 @@ export class Hub360Expositores extends LitElement {
       background: var(--bg-card);
       border: 1px solid rgba(255, 255, 255, 0.05);
       padding: 30px;
-      border-radius: 15px;
       transition: 0.3s;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
     }
 
-    .card:hover { border-color: var(--primary-blue); box-shadow: 0 0 20px rgba(0, 15, 250, 0.2); }
+    .card:hover { 
+      border-color: var(--primary-deep);
+    }
 
     .card-full { grid-column: span 3; display: flex; align-items: center; gap: 40px; }
 
-    .card h3 { color: var(--accent-cyan); margin-bottom: 15px; font-size: 1.2rem; }
+    .card h3 { 
+      padding: 1rem;
+      width: max-content;
+      border: 1px solid var(--primary-deep);
+      margin-bottom: 15px;
+    }
 
     .card-image {
       min-width: 200px; 
@@ -66,23 +238,56 @@ export class Hub360Expositores extends LitElement {
       padding: 20px;
     }
 
-    /* --- BOTONES ESTILO TECH --- */
-    .btn-neon {
-      display: inline-block;
-      padding: 15px 35px;
-      background: var(--primary-blue);
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-      clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 30%);
-      box-shadow: 0 0 15px var(--primary-blue);
-      transition: 0.3s;
+    .audence-content {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+
+      & .image-wapper {
+        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        border: 1px solid #1f1f2e;
+        padding: 20px;
+        width: 45rem;
+        max-width: 50rem;
+        height: 45rem;
+        max-height: 50rem;
+        box-sizing: border-box;
+
+        & .image {
+          width: 100%;
+          height: 100%;
+          background: url('assets/images/19.png') no-repeat center center/cover;
+        }
+      }
+
+      & .card {
+        display: flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        justify-content: space-between;
+        gap: 1.5rem;
+        &:not(:last-child) { 
+          margin-bottom: 1rem;
+        }
+        & .title {
+          padding: 1rem;
+          width: max-content;
+          color: var(--primary-deep);
+          border: 1px solid var(--primary-deep);
+          margin-bottom: 15px;
+        }
+      }
     }
 
-    .btn-neon:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--primary-glow); }
+    .card .title {
+      padding: 1rem;
+      width: max-content;
+      color: var(--primary-deep);
+      border: 1px solid var(--primary-deep);
+    }
 
-    /* --- TIMELINE DE VALOR [cite: 311-322] --- */
+    /* --- TIMELINE DE VALOR --- */
     .value-timeline {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -91,13 +296,37 @@ export class Hub360Expositores extends LitElement {
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    .step { position: relative; padding-top: 20px; }
-    .step::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 2px; background: var(--accent-cyan); }
+    .step { 
+      position: relative; 
+      padding-top: 0.5rem; 
+      & .title {
+        padding: 1rem;
+        width: max-content;
+        border: 1px solid var(--primary-deep);
+        margin-bottom: 15px;
+        clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+        background: #0a0a12;
+      }
+    }
+    .step::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 2px; background: var(--neon-cyan); }
 
     /* --- SECCIÓN FAQ / BARRERAS [cite: 344-353] --- */
-    .faq-section { background: rgba(255,255,255,0.02); padding: 60px 0; border-radius: 20px; }
-    .faq-item { margin-bottom: 30px; border-left: 2px solid var(--primary-blue); padding-left: 20px; }
-    .faq-item strong { display: block; margin-bottom: 10px; color: var(--primary-light); }
+    .faq-section { 
+      background: rgba(255,255,255,0.02);
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    }
+    .faq-item { 
+      margin-bottom: 30px;
+      border-left: 2px solid var(--primary-deep);
+      padding-left: 20px;
+    }
+    .faq-item strong { 
+      display: block;
+      margin-bottom: 10px;
+      color: var(--primary-light);
+    }
 
     @media (max-width: 768px) {
       .bento-grid, .value-timeline, .card-full { grid-template-columns: 1fr; flex-direction: column; }
@@ -117,15 +346,28 @@ export class Hub360Expositores extends LitElement {
   render() {
     return html`
       <nav-menu></nav-menu>
-      <div class="container">
-        <section class="hero-expositor">
-          <h1>Exponer en Hub 360 es participar donde la industria toma decisiones</h1>
-          <p>Expo Autotransporte Toluca 2026 evoluciona a Hub 360: una plataforma diseñada para conectar marcas con compradores reales.</p>
-          <p>No es visibilidad masiva. Es exposición estratégica ante tomadores de decisión y responsables operativos del sector.</p>
-          <a href="#contacto" class="btn-neon">Explorar opciones para expositores</a>
+      <section class="hero">
+        <div class="hero-image-overlay">
+          <div class="gradient"></div>
+          <div class="blend"></div>
+          <video autoplay muted loop playsinline>
+            <source src="assets/videos/expositores.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-content">
+          <h1 class="gradient-text">Exponer en Hub 360 es participar donde la industria toma <span class="highlight">decisiones</span></h1>
+          <p class="subheadline">
+            Expo Autotransporte Toluca 2026 evoluciona a Hub 360: una plataforma diseñada para conectar marcas con compradores reales.
+          </p>
+          <p class="credibility">
+            No es visibilidad masiva. Es exposición estratégica ante tomadores de decisión y responsables operativos del sector.
+          </p>
+          <a href="https://wa.link/9nxgeo" class="btn" target="_blank" rel="noopener">Explorar opciones para expositores</a>
           <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.6;">Información clara, sin compromiso.</p>
-        </section>
-
+        </div>
+      </section>
+      <div class="container">
         <section class="bento-grid">
           <div class="card card-full">
             <div>
@@ -141,22 +383,29 @@ export class Hub360Expositores extends LitElement {
           </div>
 
           <div class="text" style="grid-column: span 3; text-align: center; margin-top: 40px;">
-            <h2>Un Hub diseñado para generar ROI, no solo presencia.</h2>
-            <p>Expo Autotransporte Toluca – Hub 360 integra experiencia presencial, comunidad y data para maximizar el valor de tu participación como expositor.<br>
-            No se trata solo de estar.<br>
-            Se trata de conectar, conversar y convertir</p>
-          </div>
-          <div class="card">
-            <h3>Audiencia Segmentada</h3>
-            <p>Decisores, gerentes y responsables operativos con intención real de compra.</p>
-          </div>
-          <div class="card">
-            <h3>Ecosistema Activo</h3>
-            <p>Presencia y visibilidad estratégica antes, durante y después del evento presencial.</p>
-          </div>
-          <div class="card">
-            <h3>Data & Leads</h3>
-            <p>Herramientas para capturar y medir interacciones con valor comercial real.</p>
+            <div class="audence-content">
+              <div class="image-wapper">
+                <div class="image"></div>
+              </div>
+              <div class="text">
+                <h2>Un Hub diseñado para generar ROI, no solo presencia.</h2>
+                <p>Expo Autotransporte Toluca – Hub 360 integra experiencia presencial, comunidad y data para maximizar el valor de tu participación como expositor.<br>
+                No se trata solo de estar.<br>
+                Se trata de conectar, conversar y convertir</p>
+                <div class="card">
+                  <p class="title">Audiencia Segmentada</p>
+                  <p>Decisores, gerentes y responsables operativos con intención real de compra.</p>
+                </div>
+                <div class="card">
+                  <p class="title">Ecosistema Activo</p>
+                  <p>Presencia y visibilidad estratégica antes, durante y después del evento presencial.</p>
+                </div>
+                <div class="card">
+                  <p class="title">Data & Leads</p>
+                  <p>Herramientas para capturar y medir interacciones con valor comercial real.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -165,18 +414,15 @@ export class Hub360Expositores extends LitElement {
           <p>En Hub 360, tu stand se posiciona frente a:</p>
           <div class="bento-grid" style="margin-top: 40px;">
             <div class="card">
-              <span style="color: var(--primary-glow)">01.</span>
-              <h3>Tomadores de decisión</h3>
+              <p class="title">Tomadores de decisión</p>
               <p>CEOs y dueños de flota en búsqueda de soluciones estratégicas.</p>
             </div>
             <div class="card">
-              <span style="color: var(--primary-glow)">02.</span>
-              <h3>Responsables operativos</h3>
+              <p class="title">Responsables operativos</p>
               <p>Logística, mantenimiento y compras con necesidades concretas.</p>
             </div>
             <div class="card">
-              <span style="color: var(--primary-glow)">03.</span>
-              <h3>Aliados Potenciales</h3>
+              <p class="title">Aliados Potenciales</p>
               <p>Marcas complementarias y actores clave del ecosistema sectorial.</p>
             </div>
           </div>
@@ -187,15 +433,15 @@ export class Hub360Expositores extends LitElement {
         <p>Tu participación como expositor se integra a una experiencia completa:</p>
         <section class="value-timeline">
           <div class="step">
-            <h4>Antes</h4>
+            <p class="title">Antes</p>
             <p>Visibilidad previa y generación de expectativa sobre tu marca.</p>
           </div>
           <div class="step" style="border-color: var(--primary-blue);">
-            <h4 style="color: var(--primary-glow);">Durante</h4>
+            <p class="title" style="color: var(--primary-deep);">Durante</p>
             <p>Interacciones cara a cara y generación activa de leads calificados.</p>
           </div>
           <div class="step">
-            <h4>Después</h4>
+            <p class="title">Después</p>
             <p>Seguimiento y continuidad dentro del ecosistema Hub 360.</p>
           </div>
         </section>
@@ -205,16 +451,16 @@ export class Hub360Expositores extends LitElement {
           <p>Marcas líderes del sector ya han utilizado Expo Autotransporte Toluca como plataforma para:</p>
           <div class="bento-grid" style="margin-top: 40px;">
             <div class="card">
-              <span style="color: var(--primary-glow)">01.</span>
-              <h3>Generar oportunidades comerciales reales</h3>
+              <img src="assets/images/icons/valuable.svg" alt="Valuable">
+              <p>Generar oportunidades comerciales reales</p>
             </div>
             <div class="card">
-              <span style="color: var(--primary-glow)">02.</span>
-              <h3>Posicionarse frente a decisores clave</h3>
+              <img src="assets/images/icons/leader.svg" alt="Leader">
+              <p>Posicionarse frente a decisores clave</p>
             </div>
             <div class="card">
-              <span style="color: var(--primary-glow)">03.</span>
-              <h3>Fortalecer relaciones estratégicas</h3>
+              <img src="assets/images/icons/handshake.svg" alt="Handshake">
+              <p>Fortalecer relaciones estratégicas</p>
             </div>
           </div>
         </section>
@@ -225,8 +471,8 @@ export class Hub360Expositores extends LitElement {
             Hub 360 ofrece distintos formatos de exposición, diseñados para alinearse a tus metas comerciales y de posicionamiento.<br>
             Desde espacios de exhibición hasta integraciones estratégicas dentro del ecosistema.
           </p>
-          <p style="font-style: italic; color: var(--accent-cyan);">Nuestro equipo te orienta para elegir la mejor opción.</p>
-          <a href="#" class="btn-neon">Solicitar información de stands</a>
+          <p style="font-style: italic; margin-bottom: 3rem;">Nuestro equipo te orienta para elegir la mejor opción.</p>
+          <a href="https://wa.link/9nxgeo" class="btn btn-secondary" target="_blank" rel="noopener">Solicitar información de stands</a>
         </section>
 
         <section class="faq-section" id="contacto">
@@ -234,19 +480,19 @@ export class Hub360Expositores extends LitElement {
             <h2 style="margin-bottom: 40px;">¿Es Hub 360 adecuado para tu marca?</h2>
             <div class="faq-item">
               <strong>¿Qué diferencia a Hub 360 de otras expos?</strong>
-              <p>La continuidad del ecosistema, la segmentación de audiencia y el enfoque en negocio real[cite: 351].</p>
+              <p>La continuidad del ecosistema, la segmentación de audiencia y el enfoque en negocio real.</p>
             </div>
             <div class="faq-item">
               <strong>¿Cómo se mide el valor de participar?</strong>
               <p>A través de interacciones, leads y visibilidad estratégica cuantificable.</p>
             </div>
 
-            <div style="text-align: center; margin-top: 60px; padding: 40px; border: 1px solid var(--primary-blue);">
+            <div style="text-align: center; margin-top: 60px; padding: 40px; border: 1px solid var(--primary-deep);">
               <h3>Hablemos sobre cómo exponer estratégicamente</h3>
               <p>Cada marca tiene objetivos distintos.<br>
               Nuestro equipo te ayudará a definir la forma de participación que genere mayor valor para tu negocio.</p>
               <br>
-              <a href="#" class="btn-neon">Hablar con un asesor</a>
+              <a href="https://wa.link/9nxgeo" class="btn" target="_blank" rel="noopener">Hablar con un asesor</a>
             </div>
           </div>
         </section>
