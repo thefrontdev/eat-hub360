@@ -36,11 +36,8 @@ export class AppRoot extends LitElement {
   async _handleRouteChange() {
     this._isChanging = true;
     await new Promise(r => setTimeout(r, 400));
-
     const hash = window.location.hash.slice(1);
-    
     this._route = hash.includes('platinum') ? '/sponsors' : hash  || '/';
-    console.log(this._route);
     window.scrollTo(0, 0);
     
     this._isChanging = false;

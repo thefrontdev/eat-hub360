@@ -350,7 +350,6 @@ export class Hub360Sponsors extends LitElement {
   const hash = window.location.hash;
 
   const [route, queryString] = hash.split('?');
-  console.log(route, queryString);
   const section = queryString.split('=')[1];
 
   if (section) {
