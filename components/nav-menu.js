@@ -148,17 +148,23 @@ export class NavMenu extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.currentRoute = window.location.hash.slice(2) || 'home';
+    const hash = window.location.hash.slice(2);
+    this.currentRoute = hash || hash.includes('premium') ? 'premium' : 'home' || 'home';
     window.addEventListener('hashchange', () => this._handleRouteChange());
   }
 
   _handleRouteChange() {
-    this.currentRoute = window.location.hash.slice(2) || 'home';
-    console.log('Route changed', this.currentRoute);
-    this.querySelector(`.active`)?.classList.remove('active');
+    const hash = window.location.hash.slice(2);
+    const [route, queryString] = hash.split('?');
+    const params = new URLSearchParams(queryString);
+    const sponsor = params.get('sponsor');
+    this.currentRoute = sponsor ? sponsor : route || 'home';
+    this.shadowRoot.querySelector('.active')?.classList.remove('active');
     const menu = this.shadowRoot.querySelector('.menu-desktop');
-    const active = menu.querySelector(`#${this.currentRoute}`);
+    const active = menu?.querySelector(`#${this.currentRoute}`);
+    active?.classList.add('active');
   }
+
 
   toggleMenu() {
     this.isOpen = !this.isOpen;
@@ -178,6 +184,7 @@ export class NavMenu extends LitElement {
             <a href="#/expositores" id="expositores" class="${this.currentRoute === 'expositores' ? 'active' : ''}">Expositores</a>
             <a href="#/sponsors" id="sponsors" class="${this.currentRoute === 'sponsors' ? 'active' : ''}">Sponsors</a>
             <a href="#/institucional" id="institucional" class="${this.currentRoute === 'institucional' ? 'active' : ''}">Institucional</a>
+            <a href="#/sponsors?sponsor=platinum" id="platinum" class="${this.currentRoute.includes('platinum') ? 'active' : ''}">Sponsor Platinum</a>
           </div>
 
           <button class="burger ${this.isOpen ? 'open' : ''}" @click=${this.toggleMenu}>

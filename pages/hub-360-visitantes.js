@@ -127,7 +127,7 @@ export class Hub360Visitantes extends LitElement {
         display: flex;
         margin-bottom: 2rem;
         & .line {
-          background-image: linear-gradient(to bottom, transparent, var(--primary-deep));
+          background-image: linear-gradient(to bottom, transparent, var(--text-main));
           width: 1px;
           height: 2rem;
         }
@@ -135,7 +135,7 @@ export class Hub360Visitantes extends LitElement {
           font-size: 0.75rem;
           text-transform: uppercase;
           letter-spacing: 0.3rem;
-          color: var(--primary-deep);
+          color: var(--text-main);
         }
       }
 

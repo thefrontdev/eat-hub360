@@ -35,24 +35,25 @@ export class AppRoot extends LitElement {
 
   async _handleRouteChange() {
     this._isChanging = true;
-    // Duración de la animación de salida
     await new Promise(r => setTimeout(r, 400));
+
+    const hash = window.location.hash.slice(1);
     
-    this._route = window.location.hash.slice(1) || '/';
+    this._route = hash.includes('platinum') ? '/sponsors' : hash  || '/';
+    console.log(this._route);
     window.scrollTo(0, 0);
     
     this._isChanging = false;
   }
 
   _renderPage() {
-    // Aquí es donde sucede la "magia" del routing nativo
     switch (this._route) {
       case '/': return html`<hub-360-home-copy></hub-360-home-copy>`;
       case '/visitantes': return html`<hub-360-visitantes></hub-360-visitantes>`;
       case '/expositores': return html`<hub-360-expositores></hub-360-expositores>`;
       case '/sponsors': return html`<hub-360-sponsors></hub-360-sponsors>`;
       case '/institucional': return html`<hub-360-institucional></hub-360-institucional>`;
-      default: return html`<hub-360-home></hub-360-home>`;
+      default: return html`<hub-360-home-copy></hub-360-home-copy>`;
     }
   }
 

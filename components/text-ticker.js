@@ -56,8 +56,6 @@ class TextTicker extends LitElement {
   }
 
   render() {
-    console.log(this.texts);
-    // Duplicamos el contenido para que el loop sea infinito y fluido
     const content = [...this.texts, ...this.texts];
 
     return html`

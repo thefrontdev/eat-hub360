@@ -184,7 +184,7 @@ export class Hub360Sponsors extends LitElement {
         display: flex;
         margin-bottom: 2rem;
         & .line {
-          background-image: linear-gradient(to bottom, transparent, var(--primary-deep));
+          background-image: linear-gradient(to bottom, transparent, var(--text-main));
           width: 1px;
           height: 2rem;
         }
@@ -192,7 +192,7 @@ export class Hub360Sponsors extends LitElement {
           font-size: 0.75rem;
           text-transform: uppercase;
           letter-spacing: 0.3rem;
-          color: var(--primary-deep);
+          color: var(--text-main);
         }
       }
 
@@ -294,7 +294,6 @@ export class Hub360Sponsors extends LitElement {
       font-size: 0.8rem;
     }
 
-    /* --- MODALIDADES [cite: 383-390] --- */
     .modalidades-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -346,6 +345,30 @@ export class Hub360Sponsors extends LitElement {
       .platinum-tier { padding: 30px; }
     }
   `;
+
+  firstUpdated() {
+  const hash = window.location.hash;
+
+  const [route, queryString] = hash.split('?');
+  console.log(route, queryString);
+  const section = queryString.split('=')[1];
+
+  if (section) {
+    const el = this.shadowRoot.getElementById(section);
+
+    if (el) {
+      el.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      window.scrollBy({
+        top: -112,
+        behavior: 'smooth'
+      });
+    }
+  }
+}
+
 
   render() {
     return html`
@@ -418,7 +441,7 @@ export class Hub360Sponsors extends LitElement {
         </div>
         <p style="text-align: center;">Como Sponsor o Partner, su marca se posiciona en los puntos de mayor influencia del recorrido del asistente, maximizando recordación, interacción y conversión.</p>
 
-        <section class="platinum-tier">
+        <section class="platinum-tier" id="platinum">
           <div>
             <span style="color: var(--primary-deep); font-weight: bold; letter-spacing: 3px; border: 1px solid var(--primary-deep); padding: 0.5rem;">NIVEL EXCLUSIVO</span>
             <h2>Platinum Sponsor</h2>
