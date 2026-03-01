@@ -510,10 +510,10 @@ export class Hub360Home extends LitElement {
       <section class="dates-section">
         <div class="container">
           <p style="text-transform:uppercase; letter-spacing:3px;">Expo Autotransporte Toluca</p>
-          <div class="date-display">4 - 6 MARZO 2026</div>
+          <div class="date-display">21 - 23 JULIO 2026</div>
           <p><a href="https://maps.app.goo.gl/mZyKYYby8h1VrvNf9" target="_blank" rel="noopener noreferrer">Centro de Convenciones del Estado de México, Toluca, Estado de México</a></p>
           <div class="countdown-container">
-            <countdown-timer targetDate="2026/03/04 09:00:00"></countdown-timer>
+            <countdown-timer targetDate="2026/07/21 09:00:00"></countdown-timer>
           </div>
           <p style="margin-bottom: 2rem;">
             Tres días donde la industria se encuentra.<br>
