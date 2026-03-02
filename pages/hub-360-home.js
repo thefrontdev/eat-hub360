@@ -495,7 +495,7 @@ export class Hub360Home extends LitElement {
               <p>Contenido estratégico, agenda, comunidad y preparación para una experiencia relevante.</p>
             </div>
             <div class="time-step">
-              <h4 style="color: var(--primary-light);">DURANTE (4-6 MARZO)</h4>
+              <h4 style="color: var(--primary-light);">DURANTE (21-23 JULIO)</h4>
               <p style="color: white;">Networking, negocio, soluciones, aprendizaje y conexiones que importan.</p>
             </div>
             <div class="time-step">
