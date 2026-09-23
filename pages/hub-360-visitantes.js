@@ -521,7 +521,7 @@ export class Hub360Visitantes extends LitElement {
           Expo Hub 360° no es un evento informativo, es una plataforma de toma de decisiones.<br>
           Aquí se generan conversaciones, acuerdos y relaciones que trascienden el evento.
         </p>
-        <a href="https://forms.gle/oXoKGdyvTL7rowvU6" class="btn-visitante" target="_blank" rel="noopener">Regístrese y forme parte del ecosistema <br> que está transformando el autotransporte.</a>
+        <a href="https://forms.gle/yHErWEhgbVTKSmBRA" class="btn-visitante" target="_blank" rel="noopener">Regístrese y forme parte del ecosistema <br> que está transformando el autotransporte.</a>
         <p>Asegure su acceso como visitante y viva la experiencia Expo Autotransporte Toluca – Hub 360°</p>
       </section>
       <hub-360-footer></hub-360-footer>
