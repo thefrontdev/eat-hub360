@@ -834,7 +834,7 @@ export class Hub360Home extends LitElement {
             <h2>Tu lugar dentro del Hub define tu experiencia</h2>
             <p style="margin: 20px 0;">Participa como visitante, expositor o partner estratégico y forma parte del centro que conecta a toda la industria.</p>
             <div class="btn-group" style="gap: 10px; justify-content: space-evenly; flex-wrap: wrap;">
-              <a href="https://forms.gle/oXoKGdyvTL7rowvU6" class="btn" target="_blank" rel="noopener">Regístrate como visitante</a>
+              <a href="https://forms.gle/yHErWEhgbVTKSmBRA" class="btn" target="_blank" rel="noopener">Regístrate como visitante</a>
               <a href="https://wa.link/9nxgeo" class="btn btn-secondary" target="_blank" rel="noopener">Participa como expositor</a>
               <a href="https://wa.link/9nxgeo" class="btn btn-secondary" target="_blank" rel="noopener">Explora sponsorships</a>
             </div>
